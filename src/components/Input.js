@@ -1,5 +1,8 @@
 import {Component} from "react";
 import React from "react";
+import Messages from "./Messages";
+import "../css/Input.css";
+
 
 class Input extends Component {
   state = {
@@ -12,8 +15,12 @@ class Input extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.setState({text: ""});
-    this.props.onSendMessage(this.state.text);
+    if (this.state.text === "") {
+    }
+    else {
+      this.setState({text: ""});
+      this.props.onSendMessage(this.state.text);
+    }
   }
 
   render() {
@@ -24,7 +31,7 @@ class Input extends Component {
             onChange={e => this.onChange(e)}
             value={this.state.text}
             type="text"
-            placeholder="Write your message here"
+            placeholder="Unesi svoju poruku"
             autofocus="true"
           />
           <button>Šalji</button>
